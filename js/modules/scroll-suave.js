@@ -1,6 +1,6 @@
 //Scroll Suave para links internos
 export default class ScrollSuave {
-    constructor() {
+    constructor(links, options) {
         this.linksInternos = document.querySelectorAll(links);
         if (this.options === 'undefined') {
             this.options = {behavior: 'smooth', block: 'start'};
