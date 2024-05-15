@@ -1,6 +1,3 @@
-html.bigFont {
-  font-size: 150%;
-}
 body, h1, h2, ul, li, p, dd, dt, dl {
   margin: 0px;
   padding: 0px;
@@ -16,20 +13,22 @@ ul {
 }
 
 body {
+  background: #faf6ed;
   color: #222;
   -webkit-font-smoothing: antialiased;
 }
-.grid-container{
+
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
+
 .menu {
   grid-column: 3 / 5;
   margin-top: 2rem;
   margin-bottom: 2rem;
   background: #FB5;
 }
-
 
 .menu ul {
   display: flex;
@@ -39,7 +38,7 @@ body {
 
 .menu li a {
   display: block;
-  padding: 20px 15px;
+  padding: 10px;
   margin-right: 10px;
   color: #222;
   text-decoration: none;
@@ -99,7 +98,8 @@ body {
   overflow-y: scroll;
   grid-column: 2;
 }
-.animais-lista{
+
+.animais-lista li {
   cursor: pointer;
 }
 
@@ -174,19 +174,6 @@ body {
   background: #FB5;
 }
 
-[data-semana]::after {
-  display: inline-block;
-  content: '';
-  width: 6px;
-  height: 6px;
-  background-color: red;
-  border: 2px solid #000;
-  border-radius: 50%;
-  margin-left: 5px;
-}
-[data-semana].aberto::after {
-  background-color: #3f4;
-}
 .copy {
   grid-column: 3/5;
   margin-bottom: 2rem;
@@ -197,13 +184,6 @@ body {
   padding: 20px;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: bold;
-}
-.copy a{
-  padding: 20px 15px;
-}
-
-.ativo{
-  background-color: #ffffff;
 }
 
 @media (max-width: 700px) {
@@ -232,85 +212,104 @@ body {
   .copy {
     margin-bottom: 0px;
   }
-
 }
 
-.js [data-tab="content"] section{
+.js [data-tab="content"] section {
   display: none;
 }
-[data-tab="content"] section.ativo{
-  display: block!important;
+
+[data-tab="content"] section.ativo {
+  display: block !important;
 }
-[data-tab="content"] section.show-down{
-  animation: show-down .5s forwards;
-}
-[data-tab="content"] section.show-right{
+
+[data-tab="content"] section.ativo.show-right {
   animation: show-right .5s forwards;
 }
 
-@keyframes show-right{
-  from{
-    transform: translate3d(-50px, 0, 0);
-  }
-  to{
-    transform: translate3d(0, 0, 0);
-  }
+[data-tab="content"] section.ativo.show-down {
+  animation: show-down .5s forwards;
 }
-@keyframes show-down{
-  from{
+
+@keyframes show-right {
+  from {
     opacity: 0;
-    transform: translate3d(0, -30px, 0);
+    transform: translate3d(-30px, 0, 0);
   }
-  to{
+  to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
-[data-anime="accordion"] dt{
-  cursor: pointer;
-}
-.js [data-anime="accordion"] dd{
-  display: none;
-}
-[data-anime="accordion"] dt::after{
-  content: "⬎";
-  margin-left: 10px;
-  font-size: 30px;
-}
-[data-anime="accordion"] dt.active::after{
-  content: "⬏";
-}
-[data-anime="accordion"] dd.active{
- display: block!important;
- animation: slideDown .5s forwards;
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-@keyframes slideDown{
+.js [data-anime="accordion"] dd {
+  display: none;
+}
+
+[data-anime="accordion"] dt::after {
+  content: '⬎';
+  margin-left: 10px;
+}
+
+[data-anime="accordion"] dt.ativo::after {
+  content: '⬏';
+}
+
+[data-anime="accordion"] dd.ativo {
+  display: block;
+  animation: slideDown .5s forwards;
+}
+
+@keyframes slideDown {
   from {
     opacity: 0;
     max-height: 0;
   }
   to {
-    opacity: 1;
     max-height: 200px;
+    opacity: 1;
   }
 }
 
-.js [data-anime="scroll"]{
+.js [data-anime="scroll"] {
   opacity: 0;
-  transition: .3s;
   transform: translate3d(-30px, 0, 0);
+  transition: .3s;
 }
 
-.js [data-anime="scroll"].ativo{
+.js [data-anime="scroll"].ativo {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
+[data-semana]::after {
+  display: inline-block;
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #E54;
+  border-radius: 50%;
+  margin-left: 4px;
+  border: 2px solid #000;
+}
+
+[data-semana].aberto::after {
+  background: #3F4;
+}
+
 .btc-preco {
-  background-color: #3f4;
+  background: #3F4;
   padding: .2rem .5rem;
   font-weight: bold;
-  border-radius: 2px;
+  border-radius: 2px;  
 }
